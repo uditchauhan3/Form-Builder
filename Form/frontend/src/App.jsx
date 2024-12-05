@@ -8,7 +8,7 @@ const App = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://form-builder-iota-five.vercel.app/api/forms'); // Fixed endpoint
+        const response = await axios.get('https://form-builder-iota-five.vercel.app'); // Fixed endpoint
         setData(response.data); // Store the response data
       } catch (error) {
         console.error('Error fetching data:', error);
