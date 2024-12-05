@@ -4,7 +4,7 @@ const Form = require('../model/form');
 const router = express.Router();
 
 // Create a new form
-router.post('/api/forms', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const form = new Form(req.body);
     await form.save();
@@ -15,7 +15,7 @@ router.post('/api/forms', async (req, res) => {
 });
 
 // Get a form by ID
-router.get('/api/forms/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const form = await Form.findById(req.params.id);
     if (!form) return res.status(404).json({ error: 'Form not found' });
