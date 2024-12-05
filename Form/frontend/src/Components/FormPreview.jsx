@@ -6,7 +6,7 @@ const FormPreview = ({ formId }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5001/api/forms/${formId}`)
+      .get(`https://form-builder-iota-five.vercel.app/api/forms/${formId}`)
       .then((res) => setForm(res.data))
       .catch((err) => console.error(err));
   }, [formId]);
