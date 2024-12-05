@@ -15,7 +15,7 @@ app.use(express.json());
 // CORS setup
 app.use(cors({
   origin: [
-    'https://form-builder-oxa5.vercel.app/',
+    'https://form-builder-oxa5.vercel.app',
     'http://localhost:5173',
     // Add any other potential deployment URLs
   ],
