@@ -16,8 +16,7 @@ app.use(express.json());
 app.use(cors({
   origin: [
     'https://form-builder-oxa5.vercel.app',
-    'http://localhost:5173',
-    // Add any other potential deployment URLs
+    'http://localhost:5173', // Local development
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true,
@@ -29,16 +28,20 @@ app.use(bodyParser.json());
 // Routes
 app.use('/', formRoutes);
 app.use('/', responseRoutes);
-app.options('*', cors()); // Preflight requests
+app.options('*', cors()); // Handle preflight requests
 
 // MongoDB connection
 const PORT = process.env.PORT || 5001;
-mongoose.connect(process.env.MONGO_URI).then(() => {
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() => {
   console.log(`MongoDB connected successfully`);
 }).catch((err) => {
   console.error('MongoDB connection error:', err);
 });
 
+// Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
