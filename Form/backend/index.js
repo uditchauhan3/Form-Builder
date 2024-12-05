@@ -8,7 +8,11 @@ const responseRoutes = require('./routes/response');
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'https://form-builder-oxa5.vercel.app/', // Your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true
+}));
 
 // Routes
 app.use('/api/forms', formRoutes);
