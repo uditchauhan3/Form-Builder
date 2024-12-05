@@ -14,9 +14,13 @@ app.use(express.json());
 
 // CORS setup
 app.use(cors({
-  origin: 'https://form-builder-oxa5.vercel.app', // Your frontend URL
+  origin: [
+    'https://form-builder-oxa5.vercel.app', 
+    'https://form-builder-iota-five.vercel.app',
+    // Add any other potential deployment URLs
+  ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  credentials: true,  // if you're using cookies or authentication
+  credentials: true,
 }));
 
 // Body parser middleware (if needed)
