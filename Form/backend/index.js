@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 
 // Routes
 app.use('/api/forms', formRoutes);
-app.use('/api/forms', responseRoutes);
+// app.use('/', responseRoutes);
 app.options('*', cors()); // Handle preflight requests
 
 // MongoDB connection
