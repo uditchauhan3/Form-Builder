@@ -15,8 +15,8 @@ app.use(express.json());
 // CORS setup
 app.use(cors({
   origin: [
-    'https://form-builder-oxa5.vercel.app', 
-    'https://form-builder-iota-five.vercel.app',
+    'https://form-builder-oxa5.vercel.app/',
+    'http://localhost:5173',
     // Add any other potential deployment URLs
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -27,8 +27,8 @@ app.use(cors({
 app.use(bodyParser.json());
 
 // Routes
-app.use('/api/forms', formRoutes);
-app.use('/api/responses', responseRoutes);
+app.use('/', formRoutes);
+app.use('/', responseRoutes);
 app.options('*', cors()); // Preflight requests
 
 // MongoDB connection

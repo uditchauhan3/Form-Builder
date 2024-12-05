@@ -4,7 +4,7 @@ const Response = require('../model/response');
 const router = express.Router();
 
 // Save responses to a form
-router.post('/:formId', async (req, res) => {
+router.post('/api/responses/:formId', async (req, res) => {
   try {
     const response = new Response({ formId: req.params.formId, responses: req.body.responses });
     await response.save();
@@ -15,7 +15,7 @@ router.post('/:formId', async (req, res) => {
 });
 
 // Get responses for a form
-router.get('/:formId', async (req, res) => {
+router.get('/api/responses/:formId', async (req, res) => {
   try {
     const responses = await Response.find({ formId: req.params.formId });
     res.json(responses);
